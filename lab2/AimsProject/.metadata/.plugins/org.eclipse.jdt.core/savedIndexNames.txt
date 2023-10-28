@@ -1,0 +1,1 @@
+INDEX VERSION 1.134+D:\OOLAP.VN.20231-20215098.PhamHaiNam\lab2\AimsProject\.metadata\.plugins\org.eclipse.jdt.core

@@ -1,57 +1,44 @@
+package code;
 
 public class Cart {
-	public static final int MAX_NUMBERS_ORDERED = 20;
-	private int qtyOrdered = 0;
-	private DigitalVideoDisc itemsOrdered[] =
-			new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-	public void addDisc(DigitalVideoDisc disc) {
-		if(qtyOrdered < MAX_NUMBERS_ORDERED) {
-			itemsOrdered[qtyOrdered] = disc;
-			qtyOrdered++;
-			System.out.println(" added.");
-		} else {
-			System.out.println("the cart is full");
-		}
-	}
-	
-	public void addDisc(DigitalVideoDisc... dvds) {
-	    for (DigitalVideoDisc disc : dvds) {
-	        addDisc(disc); 
-	    }
-	}
-	
-	public void addDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-		addDisc(dvd1);
-		addDisc(dvd2);
-	}
-	
-	
-	public void removeDisc(DigitalVideoDisc disc) {
-		for (int i = 0; i < qtyOrdered; i ++) {
-			if(itemsOrdered[i] == disc) {
-				
-				for (int j = i; j < qtyOrdered - 1; j++) {
-					itemsOrdered[j] = itemsOrdered[j+1];
-				}
-				itemsOrdered[qtyOrdered - 1] = null;
-				qtyOrdered--;
-				System.out.println("Deleted !");
-				return;
-			}
-		}
-		System.out.println("Disc not found!");
-	}
-	
-	public float totalCost() {
-		float total = 0;
-		for (int i = 0; i < qtyOrdered; i++) {
-			total += itemsOrdered[i].getCost();
-		}
-		return total;
-	}
-	
-	
-	public int getQtyOrdered() {
-		return qtyOrdered;
-	}
+    private int qtyOrdered = 0;
+    public static final int maxNumOrdered = 20;
+    private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[maxNumOrdered];
+    public void addDigitalVideoDisc(DigitalVideoDisc dvdnum){
+        if(qtyOrdered >= maxNumOrdered)
+            System.out.println("the cart is full");
+        else {
+            itemsOrdered[qtyOrdered] = dvdnum;
+            qtyOrdered++;
+            System.out.println("added!");
+        }
+    }
+
+    public void removeDigitalVideoDisc(DigitalVideoDisc dvdnum){
+        int i,j;
+        if(qtyOrdered == 0)
+            System.out.println("nothing to delete");
+        else {
+            for (i = 0, j = 0; i < qtyOrdered; i++) {
+                if (itemsOrdered[i] != dvdnum) {
+                    itemsOrdered[j] = itemsOrdered[i];
+                    j++;
+                }
+            }
+            if (qtyOrdered == j)
+                System.out.println("DVD not found!");
+            else {
+                qtyOrdered = j;
+                System.out.println("deleted!");
+            }
+        }
+    }
+
+    public float calculateCost(){
+        float totalCost = 0f;
+        for(int k = 0; k < qtyOrdered; k++){
+            totalCost += itemsOrdered[k].getCost();
+        }
+        return totalCost;
+    }
 }
