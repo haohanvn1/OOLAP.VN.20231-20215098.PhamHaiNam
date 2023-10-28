@@ -2,8 +2,6 @@ package code;
 
 public class DigitalVideoDisc {
 private String title;
-private int id;
-private static int nbDigitalVideoDiscs = 0;
 private String category;
 private String director;
 private int length;
