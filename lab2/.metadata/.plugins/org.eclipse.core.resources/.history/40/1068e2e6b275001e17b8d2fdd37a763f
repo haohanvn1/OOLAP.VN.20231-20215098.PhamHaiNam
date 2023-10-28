@@ -15,19 +15,23 @@ public class Cart {
     }
 
     public void removeDigitalVideoDisc(DigitalVideoDisc dvdnum){
-    	for (int i = 0; i < qtyOrdered; i ++) {
-			if(itemsOrdered[i] == dvdnum) {
-				//shift to fill the gap
-				for (int j = i; j < qtyOrdered - 1; j++) {
-					itemsOrdered[j] = itemsOrdered[j+1];
-				}
-				itemsOrdered[qtyOrdered - 1] = null;
-				qtyOrdered--;
-				System.out.println(" removed.");
-				return;
-			}
-		}
-		System.out.println(" not found ");
+        int i,j;
+        if(qtyOrdered == 0)
+            System.out.println("nothing to delete");
+        else {
+            for (i = 0, j = 0; i < qtyOrdered; i++) {
+                if (itemsOrdered[i] != dvdnum) {
+                    itemsOrdered[j] = itemsOrdered[i];
+                    j++;
+                }
+            }
+            if (qtyOrdered == j)
+                System.out.println("DVD not found!");
+            else {
+                qtyOrdered = j;
+                System.out.println("deleted!");
+            }
+        }
     }
 
     public float calculateCost(){

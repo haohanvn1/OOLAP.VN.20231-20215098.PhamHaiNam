@@ -12,10 +12,7 @@ public static void main(String[] arg) {
       anOrder.addDigitalVideoDisc(dvd3);
      
  
-      for (int i = 0; i < cartItems.length; i++) {
-          DigitalVideoDisc dvd = cartItems[i];
-          System.out.println("Item " + (i + 1) + ": DVD: " + dvd.getTitle() + " - Cost: " + dvd.getCost());
-      }
+
 
 
 System.out.println("Total cost is:");
