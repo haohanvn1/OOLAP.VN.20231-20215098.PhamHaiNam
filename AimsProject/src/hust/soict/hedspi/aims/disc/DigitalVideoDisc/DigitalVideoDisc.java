@@ -2,15 +2,12 @@ package hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class DigitalVideoDisc {
 private String title;
-public class DigitalVideoDisc {
-private String title;
 private String category;
 private String director;
 private int length;
 private float cost;
 private static int nbDigitalVideoDiscs = 0;
 private int id;
-
 
 public DigitalVideoDisc(String title) {
 	super();
@@ -75,8 +72,9 @@ public int getId() {
 }
 
 public boolean isMatch(String title) {
-  
-    return this.title.equalsIgnoreCase(title);
+   if( (this.title).equals(title) ) 
+		return true;
+	else return false;
 }
 
 

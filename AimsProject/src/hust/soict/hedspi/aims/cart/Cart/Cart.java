@@ -26,7 +26,7 @@ public class Cart {
 					}
 					itemsOrdered[qtyOrdered - 1] = null;
 					qtyOrdered--;
-					System.out.println(" removed.");
+					System.out.println("removed.");
 					return;
 				}
 			}
@@ -80,16 +80,16 @@ public class Cart {
 	    	System.out.println("********************************");
 	    }
 	    public void searchById(int id) {
-	    	boolean found = false; //tạo 1 biến kiểm tra xem có tìm thấy không
+	    	boolean found = false; 
 	    	for(int i = 0; i < qtyOrdered; i++) {
 	    		if(itemsOrdered[i].getId() == id) {
-	    			System.out.println("Found DVD with ID: " + id);
-	    			found = true;  // có thi print và thoát vòng lặp
+	    			System.out.println(" DVD với ID: " + id);
+	    			found = true;  
 	    			System.out.println(itemsOrdered[i].toString());
 	    			break;
 	    		}
 	    	}
-	    	if(found == false) System.out.println("No match found for DVD with ID: " + id);
+	    	if(found == false) System.out.println("Không tìm thấy đĩa DVD có ID: " + id);
 	    }
 
 	    public void searchByTitle(String title) {
